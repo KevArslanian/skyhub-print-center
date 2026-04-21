@@ -17,7 +17,6 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "prepare": "pnpm build",
     "typecheck": "tsc -p tsconfig.build.json --noEmit"
   },
   "peerDependencies": {
