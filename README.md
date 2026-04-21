@@ -19,7 +19,8 @@ pnpm add @deltaoga/skyhub-print-center@github:deltaoga/skyhub-print-center#v1.0.
 ## Usage
 
 ```tsx
-import { PrintCenterLayout, buildPrintDocumentCode } from "@deltaoga/skyhub-print-center";
+import { buildPrintDocumentCode } from "@deltaoga/skyhub-print-center";
+import { PrintCenterLayout } from "@deltaoga/skyhub-print-center/layout";
 
 export default function Example() {
   const printedAt = new Date();
@@ -62,3 +63,5 @@ export default function Example() {
 - Default logo path is `/skyhub-mark-blue.svg`.
 - If your app uses a different asset path, pass `brandMarkSrc` explicitly.
 - Layout triggers `window.print()` automatically when page load completes.
+- Keep utility imports (`buildPrintDocumentCode`) from package root.
+- Keep component imports (`PrintCenterLayout`) from `@deltaoga/skyhub-print-center/layout`.
