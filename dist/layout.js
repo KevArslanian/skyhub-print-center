@@ -1,6 +1,5 @@
 "use client";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useEffect } from "react";
 const PRINT_CENTER_STYLES = `
   .print-page-bg {
     min-height: 100vh;
@@ -321,17 +320,6 @@ const PRINT_CENTER_STYLES = `
   }
 `;
 export function PrintCenterLayout({ scriptId, documentTitle, documentSubtitle, printedAtLabel, filterSummary, summaryTitle, summarySubtitle, summaryChips, documentCode, brandMarkSrc = "/skyhub-mark-blue.svg", children, }) {
-    useEffect(() => {
-        const trigger = () => {
-            window.print();
-        };
-        if (document.readyState === "complete") {
-            trigger();
-            return;
-        }
-        window.addEventListener("load", trigger, { once: true });
-        return () => window.removeEventListener("load", trigger);
-    }, []);
     const printButtonId = `${scriptId}-print-button`;
     return (_jsxs("div", { className: "print-page-bg", children: [_jsx("style", { children: PRINT_CENTER_STYLES }), _jsxs("div", { className: "print-shell-wrap", children: [_jsxs("div", { className: "print-toolbar print-no-print", children: [_jsxs("div", { className: "print-toolbar-brand", children: [_jsx("img", { src: brandMarkSrc, alt: "SkyHub", width: 38, height: 38 }), _jsx("span", { children: "SKYHUB PRINT CENTER" })] }), _jsx("button", { id: printButtonId, type: "button", className: "print-toolbar-button", onClick: () => window.print(), children: "CETAK" })] }), _jsxs("article", { className: "print-card", children: [_jsxs("header", { className: "print-header", children: [_jsx("p", { className: "print-header-kicker", children: "SkyHub Print Center" }), _jsx("h1", { className: "print-header-title", children: documentTitle }), _jsx("p", { className: "print-header-subtitle", children: documentSubtitle }), _jsxs("p", { className: "print-header-printed", children: ["Dicetak pada ", printedAtLabel] }), _jsx("p", { className: "print-header-meta", children: filterSummary || "Tanpa filter tambahan" })] }), _jsxs("section", { className: "print-summary", children: [_jsx("h2", { className: "print-summary-title", children: summaryTitle }), _jsx("p", { className: "print-summary-subtitle", children: summarySubtitle }), _jsx("div", { className: "print-summary-chip-row", children: summaryChips.map((chip, index) => (_jsx("span", { className: `print-chip print-chip-${chip.tone || "neutral"}`, children: chip.label }, `${chip.label}-${index}`))) })] }), children, _jsxs("footer", { className: "print-footer", children: [_jsx("span", { children: "SkyHub Print Center \u2022 Internal Use" }), _jsx("span", { children: documentCode })] })] })] })] }));
 }

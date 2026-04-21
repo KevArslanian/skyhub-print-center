@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import type { PrintCenterLayoutProps } from "./types";
 
 const PRINT_CENTER_STYLES = `
@@ -336,20 +335,6 @@ export function PrintCenterLayout({
   brandMarkSrc = "/skyhub-mark-blue.svg",
   children,
 }: PrintCenterLayoutProps) {
-  useEffect(() => {
-    const trigger = () => {
-      window.print();
-    };
-
-    if (document.readyState === "complete") {
-      trigger();
-      return;
-    }
-
-    window.addEventListener("load", trigger, { once: true });
-    return () => window.removeEventListener("load", trigger);
-  }, []);
-
   const printButtonId = `${scriptId}-print-button`;
 
   return (

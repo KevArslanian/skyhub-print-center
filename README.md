@@ -62,6 +62,6 @@ export default function Example() {
 
 - Default logo path is `/skyhub-mark-blue.svg`.
 - If your app uses a different asset path, pass `brandMarkSrc` explicitly.
-- Layout triggers `window.print()` automatically when page load completes.
+- Print dialog tidak auto-popup; gunakan tombol `CETAK` untuk memicu print.
 - Keep utility imports (`buildPrintDocumentCode`) from package root.
 - Keep component imports (`PrintCenterLayout`) from `@deltaoga/skyhub-print-center/layout`.
